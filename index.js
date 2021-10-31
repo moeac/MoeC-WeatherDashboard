@@ -1,8 +1,10 @@
 const apiKey = "c580ebe24bee6122f67d8b903d8454f3";
 
 var dailyWeather = $('.daily-weather');
+var futureWeather = $(".future-weather");
 var city = $("#city");
 const submitButton = $(".submit-btn");
+
 
 // fetches weather to get lon and lat values
 function fetchWeather(cityInput) {
@@ -31,7 +33,7 @@ function displayWeather(cityInput) {
     currentWeather(cityInput)
     .then(function(data) {
         console.log(data);
-        const { current } = data;
+        const { current, daily } = data;
         
         const cityTitle = $('<li>').text(`${cityInput}`.toUpperCase());
         const date = $('<li>').text(moment().format("dddd, MMMM Do YYYY"))
@@ -50,6 +52,25 @@ function displayWeather(cityInput) {
             uv,
             icon,
             );
+
+        for (let i = 1; i < 6; i++) {
+
+        const dateFuture = $('<li>').text(moment().format("dddd, MMMM Do YYYY"))
+        const tempFuture = $('<li>').text(`${daily[i].temp.day} °C`);
+        const humidityFuture = $('<li>').text(`${daily[i].humidity} %`);
+        const windSpeedFuture = $('<li>').text((daily[i].wind_speed * 3.6).toFixed(2) + " km/h"); //api call gets wind in m/s so multiply by 3.6 to get km/h
+        const uvFuture = $('<li>').text(`UV Index: ${daily[i].uvi}`);
+        const iconFuture = $('<img>').attr('src',`https://openweathermap.org/img/wn/${daily[i].weather[0].icon}@2x.png`);
+        
+        futureWeather.append(
+            dateFuture,
+            tempFuture,
+            humidityFuture,
+            windSpeedFuture,
+            uvFuture,
+            iconFuture,
+            );
+        }
          
     })
 }
