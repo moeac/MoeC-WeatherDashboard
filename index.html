@@ -4,18 +4,63 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/index.css"/>
+    <title>Weather Board</title>
 </head>
-<body>
 
- <form>
-    <input type="text" id="city" placeholder="Enter City"/>
-    <button type="submit" class="submit-btn">Search</button>
-</form>   
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="index.js"></script>
+<body>
+    <!-- background image -->
+    <div class="bg-image" style="background-image: url('./images/sun.jpg'); height: 100vh;">
+        <!-- top header -->
+        <div class="jumbotron bg-light rounded text-center border-bottom border-primary p-5">
+            <h1 class="font-weight-bold text-primary">Weather Dashboard</h1>
+        </div>
+
+        <div class="d-flex">
+            <!-- side bar -->
+            <div class="border-end">
+
+                <form class="sidebar-heading border-bottom border-primary p-3">
+                    <input class="rounded shadow text-primary border-primary text-center bg-light row mx-auto " type="text" id="city" placeholder="Search for a City!"/></br>
+                    <div class="row justify-content-around">
+                        <button type="submit" class="submit-btn col-5 shadow rounded text-success border-success bg-light ">Search</button>
+                        <button type="reset" class="clear-btn col-5 shadow rounded text-danger border-danger bg-light ">Clear</button>
+                    </div>
+                </form>
+
+                <div class="history list-group"></div>
+
+            </div>
+            <!-- weather display -->
+            <div class="container">
+
+                <div class="row">
+                    <div class="city-title col text-center"></div>
+                </div>
+
+                <div class="row my-5">
+                    <div class="col"></div>
+                    <div class="col rounded daily-weather"></div>
+                    <div class="col"></div>
+                </div>  
+                
+                <div class="row future-weather"></div>
+
+            </div>
+
+        </div>
+      
+    </div>
+    
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="assets/index.js"></script>
 </body>
 </html>
-
-
 
